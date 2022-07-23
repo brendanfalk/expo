@@ -12,7 +12,7 @@ import ExpoModulesCore
 public class UpdatesLogger: NSObject {
   public static let EXPO_UPDATES_LOG_CATEGORY = "expo-updates"
 
-  private let logger = ExpoModulesCore.Logger(category: UpdatesLogger.EXPO_UPDATES_LOG_CATEGORY)
+  private let logger = ExpoModulesCore.Logger(category: UpdatesLogger.EXPO_UPDATES_LOG_CATEGORY, persistent: true)
 
   // MARK: - Public logging functions
 

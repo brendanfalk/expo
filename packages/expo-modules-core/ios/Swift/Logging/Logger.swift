@@ -18,9 +18,12 @@ public class Logger {
 
   private var handlers: [LogHandler] = []
 
-  public init(category: String = "main") {
+  public init(category: String = "main", persistent: Bool = false) {
     self.category = category
 
+    if persistent {
+      addHandler(withType: PersistentLogHandler.self)
+    }
     if #available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *) {
       addHandler(withType: OSLogHandler.self)
     } else {

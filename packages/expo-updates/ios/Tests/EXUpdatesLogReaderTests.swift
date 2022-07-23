@@ -51,5 +51,5 @@ class EXUpdatesLogReaderTests: XCTestCase {
     XCTAssertTrue(logEntry2["updateId"] as? String == "myUpdateId")
     XCTAssertTrue(logEntry2["assetId"] as? String == "myAssetId")
     XCTAssertNil(logEntry2["stacktrace"])
-}
+  }
 }
