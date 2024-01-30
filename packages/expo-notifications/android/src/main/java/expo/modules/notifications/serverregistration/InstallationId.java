@@ -3,6 +3,7 @@ package expo.modules.notifications.serverregistration;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import io.github.pixee.security.BoundedLineReader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -114,7 +115,7 @@ public class InstallationId {
   protected String readUUIDFromFile(File file) {
     try (FileReader fileReader = new FileReader(file);
          BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-      String line = bufferedReader.readLine();
+      String line = BoundedLineReader.readLine(bufferedReader, 5_000_000);
       // If line is not a UUID, it throws an IllegalArgumentException
       return UUID.fromString(line).toString();
     } catch (IOException | IllegalArgumentException e) {

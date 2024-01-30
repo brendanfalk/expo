@@ -21,6 +21,7 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import io.github.pixee.security.BoundedLineReader;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -224,7 +225,7 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
               String inputLine;
               String json = "";
 
-              while ((inputLine = in.readLine()) != null)
+              while ((inputLine = BoundedLineReader.readLine(in, 5_000_000)) != null)
                   json += inputLine;
 
               in.close();
