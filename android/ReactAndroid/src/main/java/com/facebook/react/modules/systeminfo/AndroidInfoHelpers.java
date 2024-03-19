@@ -11,6 +11,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import com.facebook.common.logging.FLog;
 import com.facebook.react.R;
+import io.github.pixee.security.SystemCommand;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -121,7 +122,7 @@ public class AndroidInfoHelpers {
         Process process = null;
         BufferedReader reader = null;
         try {
-            process = Runtime.getRuntime().exec(new String[] { "/system/bin/getprop", METRO_HOST_PROP_NAME });
+            process = SystemCommand.runCommand(Runtime.getRuntime(), new String[] { "/system/bin/getprop", METRO_HOST_PROP_NAME });
             reader = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName("UTF-8")));
             String lastLine = "";
             String line;
