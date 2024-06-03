@@ -527,10 +527,10 @@ class TextLayoutAlgorithm {
           If resolve_x[i] is unspecified, set it to 0.
           If resolve_y[i] is unspecified, set it to 0.
 */
-            if (resolve_x[i].equals("")) {
+            if ("".equals(resolve_x[i])) {
                 resolve_x[i] = "0";
             }
-            if (resolve_y[i].equals("")) {
+            if ("".equals(resolve_y[i])) {
                 resolve_y[i] = "0";
             }
 /*

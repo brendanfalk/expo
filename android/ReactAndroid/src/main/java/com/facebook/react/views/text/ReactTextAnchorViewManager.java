@@ -56,13 +56,13 @@ public abstract class ReactTextAnchorViewManager<T extends View, C extends React
 
   @ReactProp(name = ViewProps.ELLIPSIZE_MODE)
   public void setEllipsizeMode(ReactTextView view, @Nullable String ellipsizeMode) {
-    if (ellipsizeMode == null || ellipsizeMode.equals("tail")) {
+    if (ellipsizeMode == null || "tail".equals(ellipsizeMode)) {
       view.setEllipsizeLocation(TextUtils.TruncateAt.END);
-    } else if (ellipsizeMode.equals("head")) {
+    } else if ("head".equals(ellipsizeMode)) {
       view.setEllipsizeLocation(TextUtils.TruncateAt.START);
-    } else if (ellipsizeMode.equals("middle")) {
+    } else if ("middle".equals(ellipsizeMode)) {
       view.setEllipsizeLocation(TextUtils.TruncateAt.MIDDLE);
-    } else if (ellipsizeMode.equals("clip")) {
+    } else if ("clip".equals(ellipsizeMode)) {
       view.setEllipsizeLocation(null);
     } else {
       throw new JSApplicationIllegalArgumentException("Invalid ellipsizeMode: " + ellipsizeMode);
@@ -111,11 +111,11 @@ public abstract class ReactTextAnchorViewManager<T extends View, C extends React
       FLog.w(TAG, "android_hyphenationFrequency only available since android 23");
       return;
     }
-    if (frequency == null || frequency.equals("none")) {
+    if (frequency == null || "none".equals(frequency)) {
       view.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NONE);
-    } else if (frequency.equals("full")) {
+    } else if ("full".equals(frequency)) {
       view.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_FULL);
-    } else if (frequency.equals("normal")) {
+    } else if ("normal".equals(frequency)) {
       view.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NORMAL);
     } else {
       throw new JSApplicationIllegalArgumentException(

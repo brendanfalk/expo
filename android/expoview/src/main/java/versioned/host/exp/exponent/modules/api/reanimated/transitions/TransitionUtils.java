@@ -124,13 +124,13 @@ class TransitionUtils {
     }
     if (params.hasKey("interpolation")) {
       String interpolation = params.getString("interpolation");
-      if (interpolation.equals("easeIn")) {
+      if ("easeIn".equals(interpolation)) {
         transition.setInterpolator(new AccelerateInterpolator());
-      } else if (interpolation.equals("easeOut")) {
+      } else if ("easeOut".equals(interpolation)) {
         transition.setInterpolator(new DecelerateInterpolator());
-      } else if (interpolation.equals("easeInOut")) {
+      } else if ("easeInOut".equals(interpolation)) {
         transition.setInterpolator(new AccelerateDecelerateInterpolator());
-      } else if (interpolation.equals("linear")) {
+      } else if ("linear".equals(interpolation)) {
         transition.setInterpolator(new LinearInterpolator());
       } else {
         throw new JSApplicationIllegalArgumentException(

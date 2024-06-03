@@ -95,9 +95,9 @@ public class SwipeRefreshLayoutManager extends ViewGroupManager<ReactSwipeRefres
 
   @Override
   public void setSize(ReactSwipeRefreshLayout view, String size) {
-    if (size == null || size.equals("default")) {
+    if (size == null || "default".equals(size)) {
       view.setSize(SwipeRefreshLayout.DEFAULT);
-    } else if (size.equals("large")) {
+    } else if ("large".equals(size)) {
       view.setSize(SwipeRefreshLayout.LARGE);
     } else {
       throw new IllegalArgumentException("Size must be 'default' or 'large', received: " + size);

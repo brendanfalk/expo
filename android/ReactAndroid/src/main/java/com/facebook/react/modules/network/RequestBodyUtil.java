@@ -146,7 +146,7 @@ import okio.Source;
 
   /** Creates a empty RequestBody if required by the http method spec, otherwise use null */
   public static RequestBody getEmptyBody(String method) {
-    if (method.equals("POST") || method.equals("PUT") || method.equals("PATCH")) {
+    if ("POST".equals(method) || "PUT".equals(method) || "PATCH".equals(method)) {
       return RequestBody.create(null, ByteString.EMPTY);
     } else {
       return null;

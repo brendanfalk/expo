@@ -114,7 +114,7 @@ public final class WebSocketModule extends NativeWebSocketModuleSpec {
       while (iterator.hasNextKey()) {
         String key = iterator.nextKey();
         if (ReadableType.String.equals(headers.getType(key))) {
-          if (key.equalsIgnoreCase("origin")) {
+          if ("origin".equalsIgnoreCase(key)) {
             hasOriginHeader = true;
           }
           builder.addHeader(key, headers.getString(key));

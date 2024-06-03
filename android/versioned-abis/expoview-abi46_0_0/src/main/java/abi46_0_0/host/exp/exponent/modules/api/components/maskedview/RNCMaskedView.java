@@ -109,7 +109,7 @@ public class RNCMaskedView extends ReactViewGroup {
   }
 
   public void setRenderingMode(String renderingMode) {
-    if (renderingMode.equals("software")) {
+    if ("software".equals(renderingMode)) {
       setLayerType(LAYER_TYPE_SOFTWARE, null);
     } else {
       setLayerType(LAYER_TYPE_HARDWARE, null);

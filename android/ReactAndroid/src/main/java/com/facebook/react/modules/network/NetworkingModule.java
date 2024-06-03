@@ -339,7 +339,7 @@ public class NetworkingModule extends NativeNetworkingAndroidSpec {
             }
         }
         RequestBody requestBody;
-        if (data == null || method.toLowerCase(Locale.ROOT).equals("get") || method.toLowerCase(Locale.ROOT).equals("head")) {
+        if (data == null || "get".equals(method.toLowerCase(Locale.ROOT)) || "head".equals(method.toLowerCase(Locale.ROOT))) {
             requestBody = RequestBodyUtil.getEmptyBody(method);
         } else if (handler != null) {
             requestBody = handler.toRequestBody(data, contentType);

@@ -206,9 +206,9 @@ public abstract class BaseViewManager<T extends View, C extends LayoutShadowNode
     final ReadableMapKeySetIterator i = accessibilityState.keySetIterator();
     while (i.hasNextKey()) {
       final String state = i.nextKey();
-      if (state.equals(STATE_BUSY)
-          || state.equals(STATE_EXPANDED)
-          || (state.equals(STATE_CHECKED)
+      if (STATE_BUSY.equals(state)
+          || STATE_EXPANDED.equals(state)
+          || (STATE_CHECKED.equals(state)
               && accessibilityState.getType(STATE_CHECKED) == ReadableType.String)) {
         updateViewContentDescription(view);
         break;
@@ -237,15 +237,15 @@ public abstract class BaseViewManager<T extends View, C extends LayoutShadowNode
       while (i.hasNextKey()) {
         final String state = i.nextKey();
         final Dynamic value = accessibilityState.getDynamic(state);
-        if (state.equals(STATE_CHECKED)
+        if (STATE_CHECKED.equals(state)
             && value.getType() == ReadableType.String
             && value.asString().equals(STATE_MIXED)) {
           contentDescription.add(view.getContext().getString(R.string.reactandroid_state_mixed_description));
-        } else if (state.equals(STATE_BUSY)
+        } else if (STATE_BUSY.equals(state)
             && value.getType() == ReadableType.Boolean
             && value.asBoolean()) {
           contentDescription.add(view.getContext().getString(R.string.reactandroid_state_busy_description));
-        } else if (state.equals(STATE_EXPANDED) && value.getType() == ReadableType.Boolean) {
+        } else if (STATE_EXPANDED.equals(state) && value.getType() == ReadableType.Boolean) {
           contentDescription.add(
               view.getContext()
                   .getString(
@@ -295,13 +295,13 @@ public abstract class BaseViewManager<T extends View, C extends LayoutShadowNode
   @ReactProp(name = ViewProps.IMPORTANT_FOR_ACCESSIBILITY)
   public void setImportantForAccessibility(
       @NonNull T view, @Nullable String importantForAccessibility) {
-    if (importantForAccessibility == null || importantForAccessibility.equals("auto")) {
+    if (importantForAccessibility == null || "auto".equals(importantForAccessibility)) {
       ViewCompat.setImportantForAccessibility(view, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
-    } else if (importantForAccessibility.equals("yes")) {
+    } else if ("yes".equals(importantForAccessibility)) {
       ViewCompat.setImportantForAccessibility(view, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
-    } else if (importantForAccessibility.equals("no")) {
+    } else if ("no".equals(importantForAccessibility)) {
       ViewCompat.setImportantForAccessibility(view, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO);
-    } else if (importantForAccessibility.equals("no-hide-descendants")) {
+    } else if ("no-hide-descendants".equals(importantForAccessibility)) {
       ViewCompat.setImportantForAccessibility(
           view, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
     }
@@ -345,11 +345,11 @@ public abstract class BaseViewManager<T extends View, C extends LayoutShadowNode
   @Override
   @ReactProp(name = ViewProps.ACCESSIBILITY_LIVE_REGION)
   public void setAccessibilityLiveRegion(@NonNull T view, @Nullable String liveRegion) {
-    if (liveRegion == null || liveRegion.equals("none")) {
+    if (liveRegion == null || "none".equals(liveRegion)) {
       ViewCompat.setAccessibilityLiveRegion(view, ViewCompat.ACCESSIBILITY_LIVE_REGION_NONE);
-    } else if (liveRegion.equals("polite")) {
+    } else if ("polite".equals(liveRegion)) {
       ViewCompat.setAccessibilityLiveRegion(view, ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE);
-    } else if (liveRegion.equals("assertive")) {
+    } else if ("assertive".equals(liveRegion)) {
       ViewCompat.setAccessibilityLiveRegion(view, ViewCompat.ACCESSIBILITY_LIVE_REGION_ASSERTIVE);
     }
   }

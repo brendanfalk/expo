@@ -109,7 +109,7 @@ class ReactEditTextInputConnectionWrapper extends InputConnectionWrapper {
     String key = text.toString();
     // Assume not a keyPress if length > 1 (or 2 if unicode)
     if (key.length() <= 2) {
-      if (key.equals("")) {
+      if ("".equals(key)) {
         key = BACKSPACE_KEY_VALUE;
       }
       dispatchKeyEventOrEnqueue(key);
@@ -152,7 +152,7 @@ class ReactEditTextInputConnectionWrapper extends InputConnectionWrapper {
   }
 
   private void dispatchKeyEvent(String key) {
-    if (key.equals(NEWLINE_RAW_VALUE)) {
+    if (NEWLINE_RAW_VALUE.equals(key)) {
       key = ENTER_KEY_VALUE;
     }
     mEventDispatcher.dispatchEvent(new ReactTextInputKeyPressEvent(mEditText.getId(), key));

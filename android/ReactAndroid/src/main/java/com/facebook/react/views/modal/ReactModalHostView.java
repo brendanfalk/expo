@@ -269,9 +269,9 @@ public class ReactModalHostView extends ViewGroup
     // Reset the flag since we are going to create a new dialog
     mPropertyRequiresNewDialog = false;
     int theme = R.style.ReactAndroidTheme_FullScreenDialog;
-    if (mAnimationType.equals("fade")) {
+    if ("fade".equals(mAnimationType)) {
       theme = R.style.ReactAndroidTheme_FullScreenDialogAnimatedFade;
-    } else if (mAnimationType.equals("slide")) {
+    } else if ("slide".equals(mAnimationType)) {
       theme = R.style.ReactAndroidTheme_FullScreenDialogAnimatedSlide;
     }
     Activity currentActivity = getCurrentActivity();

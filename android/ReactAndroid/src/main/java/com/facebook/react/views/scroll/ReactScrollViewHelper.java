@@ -157,11 +157,11 @@ public class ReactScrollViewHelper {
   }
 
   public static int parseOverScrollMode(String jsOverScrollMode) {
-    if (jsOverScrollMode == null || jsOverScrollMode.equals(AUTO)) {
+    if (jsOverScrollMode == null || AUTO.equals(jsOverScrollMode)) {
       return View.OVER_SCROLL_IF_CONTENT_SCROLLS;
-    } else if (jsOverScrollMode.equals(OVER_SCROLL_ALWAYS)) {
+    } else if (OVER_SCROLL_ALWAYS.equals(jsOverScrollMode)) {
       return View.OVER_SCROLL_ALWAYS;
-    } else if (jsOverScrollMode.equals(OVER_SCROLL_NEVER)) {
+    } else if (OVER_SCROLL_NEVER.equals(jsOverScrollMode)) {
       return View.OVER_SCROLL_NEVER;
     } else {
       throw new JSApplicationIllegalArgumentException("wrong overScrollMode: " + jsOverScrollMode);

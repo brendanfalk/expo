@@ -101,9 +101,9 @@ public class ReactDrawerLayoutManager extends ViewGroupManager<ReactDrawerLayout
   }
 
   private void setDrawerPositionInternal(ReactDrawerLayout view, String drawerPosition) {
-    if (drawerPosition.equals("left")) {
+    if ("left".equals(drawerPosition)) {
       view.setDrawerPosition(Gravity.START);
-    } else if (drawerPosition.equals("right")) {
+    } else if ("right".equals(drawerPosition)) {
       view.setDrawerPosition(Gravity.END);
     } else {
       throw new JSApplicationIllegalArgumentException(

@@ -365,9 +365,9 @@ public class RNSharedElementTransition extends ViewGroup {
       boolean hidden = mInitialLayoutPassCompleted
               && (item.getStyle() != null)
               && (item.getContent() != null);
-      if (hidden && (mAnimation == RNSharedElementAnimation.FADE_IN) && item.getName().equals("start"))
+      if (hidden && (mAnimation == RNSharedElementAnimation.FADE_IN) && "start".equals(item.getName()))
         hidden = false;
-      if (hidden && (mAnimation == RNSharedElementAnimation.FADE_OUT) && item.getName().equals("end"))
+      if (hidden && (mAnimation == RNSharedElementAnimation.FADE_OUT) && "end".equals(item.getName()))
         hidden = false;
       item.setHidden(hidden);
     }

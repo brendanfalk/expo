@@ -194,7 +194,7 @@ public class BundleDownloader {
                       url, status, Headers.of(headers), body, outputFile, bundleInfo, callback);
                 } else {
                   if (!headers.containsKey("Content-Type")
-                      || !headers.get("Content-Type").equals("application/json")) {
+                      || !"application/json".equals(headers.get("Content-Type"))) {
                     return;
                   }
 

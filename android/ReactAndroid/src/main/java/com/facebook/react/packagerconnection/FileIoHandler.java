@@ -83,7 +83,7 @@ public class FileIoHandler implements Runnable {
                 if (filename == null) {
                   throw new Exception("missing params.filename");
                 }
-                if (!mode.equals("r")) {
+                if (!"r".equals(mode)) {
                   throw new IllegalArgumentException("unsupported mode: " + mode);
                 }
 

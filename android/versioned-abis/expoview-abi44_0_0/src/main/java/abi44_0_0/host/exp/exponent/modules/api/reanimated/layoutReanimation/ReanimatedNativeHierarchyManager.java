@@ -139,7 +139,7 @@ class ReaLayoutAnimator extends LayoutAnimationController {
         return;
       }
       String parentName = screenParentViewManager.getName();
-      if (parentName.equals("RNSScreenStack")) {
+      if ("RNSScreenStack".equals(parentName)) {
         super.deleteView(view, listener);
         return;
       }
@@ -242,7 +242,7 @@ public class ReanimatedNativeHierarchyManager extends NativeViewHierarchyManager
       String viewManagerName = viewManager.getName();
       View container = resolveView(parentTag);
       if (container != null
-          && viewManagerName.equals("RNSScreen")
+          && "RNSScreen".equals(viewManagerName)
           && this.mReaLayoutAnimator != null) {
         this.mReaLayoutAnimator.applyLayoutUpdate(
             viewToUpdate,

@@ -42,7 +42,7 @@ import java.util.List;
       ReadableMap transformConfigMap = transforms.getMap(i);
       String property = transformConfigMap.getString("property");
       String type = transformConfigMap.getString("type");
-      if (type.equals("animated")) {
+      if ("animated".equals(type)) {
         AnimatedTransformConfig transformConfig = new AnimatedTransformConfig();
         transformConfig.mProperty = property;
         transformConfig.mNodeTag = transformConfigMap.getInt("nodeTag");

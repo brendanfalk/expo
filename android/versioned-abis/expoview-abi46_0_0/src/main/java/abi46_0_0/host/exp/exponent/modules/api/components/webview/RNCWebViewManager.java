@@ -548,7 +548,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         }
         if (source.hasKey("method")) {
           String method = source.getString("method");
-          if (method.equalsIgnoreCase(HTTP_METHOD_POST)) {
+          if (HTTP_METHOD_POST.equalsIgnoreCase(method)) {
             byte[] postData = null;
             if (source.hasKey("body")) {
               String body = source.getString("body");

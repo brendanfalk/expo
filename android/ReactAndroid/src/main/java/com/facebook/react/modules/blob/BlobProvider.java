@@ -62,7 +62,7 @@ public final class BlobProvider extends ContentProvider {
 
   @Override
   public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
-    if (!mode.equals("r")) {
+    if (!"r".equals(mode)) {
       throw new FileNotFoundException("Cannot open " + uri.toString() + " in mode '" + mode + "'");
     }
 

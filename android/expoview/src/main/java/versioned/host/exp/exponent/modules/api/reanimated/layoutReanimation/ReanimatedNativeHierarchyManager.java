@@ -125,7 +125,7 @@ class ReaLayoutAnimator extends LayoutAnimationController {
     }
     // we don't want layout animations in native-stack since it is currently buggy there
     // so we check if it is a (grand)child of ScreenStack
-    if (viewManager.getName().equals("RNSScreen")
+    if ("RNSScreen".equals(viewManager.getName())
         && view.getParent() != null
         && view.getParent().getParent() instanceof View) {
       // we check grandparent of Screen since the parent is a ScreenStackFragment
@@ -141,7 +141,7 @@ class ReaLayoutAnimator extends LayoutAnimationController {
         return;
       }
       String parentName = screenParentViewManager.getName();
-      if (parentName.equals("RNSScreenStack")) {
+      if ("RNSScreenStack".equals(parentName)) {
         super.deleteView(view, listener);
         return;
       }
@@ -281,7 +281,7 @@ public class ReanimatedNativeHierarchyManager extends NativeViewHierarchyManager
       String viewManagerName = viewManager.getName();
       View container = resolveView(parentTag);
       if (container != null
-          && viewManagerName.equals("RNSScreen")
+          && "RNSScreen".equals(viewManagerName)
           && this.mReaLayoutAnimator != null) {
         this.mReaLayoutAnimator.applyLayoutUpdate(
             viewToUpdate,
@@ -319,7 +319,7 @@ public class ReanimatedNativeHierarchyManager extends NativeViewHierarchyManager
     }
 
     // we don't want layout animations in native-stack since it is currently buggy there
-    if (viewGroupManager.getName().equals("RNSScreenStack")) {
+    if ("RNSScreenStack".equals(viewGroupManager.getName())) {
       super.manageChildren(tag, indicesToRemove, viewsToAdd, tagsToDelete);
       return;
     }

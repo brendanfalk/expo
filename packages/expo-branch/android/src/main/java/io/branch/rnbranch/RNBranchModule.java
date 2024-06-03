@@ -894,9 +894,9 @@ public class RNBranchModule extends ReactContextBaseJavaModule {
                 case String:
                     String mode = branchUniversalObjectMap.getString("contentIndexingMode");
 
-                    if (mode.equals("private"))
+                    if ("private".equals(mode))
                         branchUniversalObject.setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PRIVATE);
-                    else if (mode.equals("public"))
+                    else if ("public".equals(mode))
                         branchUniversalObject.setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC);
                     else
                         Log.w(REACT_CLASS, "Unsupported value for contentIndexingMode: " + mode +

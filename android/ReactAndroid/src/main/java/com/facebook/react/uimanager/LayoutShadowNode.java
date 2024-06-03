@@ -53,7 +53,7 @@ public class LayoutShadowNode extends ReactShadowNodeImpl {
         value = YogaConstants.UNDEFINED;
       } else if (dynamic.getType() == ReadableType.String) {
         final String s = dynamic.asString();
-        if (s.equals("auto")) {
+        if ("auto".equals(s)) {
           unit = YogaUnit.AUTO;
           value = YogaConstants.UNDEFINED;
         } else if (s.endsWith("%")) {

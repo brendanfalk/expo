@@ -105,7 +105,7 @@ public class Serialization {
                 return null;
         }
 
-        if (webClientId == null && appOwnership.equals("standalone")) {
+        if (webClientId == null && "standalone".equals(appOwnership)) {
             int clientIdIdentifier =
                     context
                             .getResources()

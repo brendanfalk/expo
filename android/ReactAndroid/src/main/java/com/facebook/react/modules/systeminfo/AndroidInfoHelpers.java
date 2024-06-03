@@ -100,7 +100,7 @@ public class AndroidInfoHelpers {
         // We detect whether app runs on genymotion and replace js bundle server hostname accordingly
         String ipAddress;
         String metroHostProp = getMetroHostPropValue();
-        if (!metroHostProp.equals("")) {
+        if (!"".equals(metroHostProp)) {
             ipAddress = metroHostProp;
         } else if (isRunningOnGenymotion()) {
             ipAddress = GENYMOTION_LOCALHOST;

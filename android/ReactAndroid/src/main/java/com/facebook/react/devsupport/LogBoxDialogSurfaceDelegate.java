@@ -33,7 +33,7 @@ public class LogBoxDialogSurfaceDelegate implements SurfaceDelegate {
   @Override
   public void createContentView(String appKey) {
     Assertions.assertCondition(
-        appKey.equals("LogBox"), "This surface manager can only create LogBox React application");
+        "LogBox".equals(appKey), "This surface manager can only create LogBox React application");
     mReactRootView = mDevSupportManager.createRootView("LogBox");
     if (mReactRootView == null) {
       RNLog.e("Unable to launch logbox because react was unable to create the root view");

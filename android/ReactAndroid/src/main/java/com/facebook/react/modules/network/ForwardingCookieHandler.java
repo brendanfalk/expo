@@ -113,7 +113,7 @@ public class ForwardingCookieHandler extends CookieHandler {
   }
 
   private static boolean isCookieHeader(String name) {
-    return name.equalsIgnoreCase(VERSION_ZERO_HEADER) || name.equalsIgnoreCase(VERSION_ONE_HEADER);
+    return VERSION_ZERO_HEADER.equalsIgnoreCase(name) || VERSION_ONE_HEADER.equalsIgnoreCase(name);
   }
 
   private void runInBackground(final Runnable runnable) {

@@ -148,19 +148,19 @@ public class ReactProgressBarViewManager
     if (styleStr == null) {
       throw new JSApplicationIllegalArgumentException(
           "ProgressBar needs to have a style, null received");
-    } else if (styleStr.equals("Horizontal")) {
+    } else if ("Horizontal".equals(styleStr)) {
       return android.R.attr.progressBarStyleHorizontal;
-    } else if (styleStr.equals("Small")) {
+    } else if ("Small".equals(styleStr)) {
       return android.R.attr.progressBarStyleSmall;
-    } else if (styleStr.equals("Large")) {
+    } else if ("Large".equals(styleStr)) {
       return android.R.attr.progressBarStyleLarge;
-    } else if (styleStr.equals("Inverse")) {
+    } else if ("Inverse".equals(styleStr)) {
       return android.R.attr.progressBarStyleInverse;
-    } else if (styleStr.equals("SmallInverse")) {
+    } else if ("SmallInverse".equals(styleStr)) {
       return android.R.attr.progressBarStyleSmallInverse;
-    } else if (styleStr.equals("LargeInverse")) {
+    } else if ("LargeInverse".equals(styleStr)) {
       return android.R.attr.progressBarStyleLargeInverse;
-    } else if (styleStr.equals("Normal")) {
+    } else if ("Normal".equals(styleStr)) {
       return android.R.attr.progressBarStyle;
     } else {
       throw new JSApplicationIllegalArgumentException("Unknown ProgressBar style: " + styleStr);

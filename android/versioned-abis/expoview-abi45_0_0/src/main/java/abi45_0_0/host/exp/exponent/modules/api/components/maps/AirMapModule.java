@@ -80,8 +80,8 @@ public class AirMapModule extends ReactContextBaseJavaModule {
     final ReactApplicationContext context = getReactApplicationContext();
     final String format = options.hasKey("format") ? options.getString("format") : "png";
     final Bitmap.CompressFormat compressFormat =
-        format.equals(SNAPSHOT_FORMAT_PNG) ? Bitmap.CompressFormat.PNG :
-            format.equals(SNAPSHOT_FORMAT_JPG) ? Bitmap.CompressFormat.JPEG : null;
+        SNAPSHOT_FORMAT_PNG.equals(format) ? Bitmap.CompressFormat.PNG :
+            SNAPSHOT_FORMAT_JPG.equals(format) ? Bitmap.CompressFormat.JPEG : null;
     final double quality = options.hasKey("quality") ? options.getDouble("quality") : 1.0;
     final DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
     final Integer width =

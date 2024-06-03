@@ -812,13 +812,13 @@ public class ReactTextInputManager extends BaseViewManager<ReactEditText, Layout
     } else if (autoCapitalize.getType() == ReadableType.String) {
       final String autoCapitalizeStr = autoCapitalize.asString();
 
-      if (autoCapitalizeStr.equals("none")) {
+      if ("none".equals(autoCapitalizeStr)) {
         autoCapitalizeValue = 0;
-      } else if (autoCapitalizeStr.equals("characters")) {
+      } else if ("characters".equals(autoCapitalizeStr)) {
         autoCapitalizeValue = InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS;
-      } else if (autoCapitalizeStr.equals("words")) {
+      } else if ("words".equals(autoCapitalizeStr)) {
         autoCapitalizeValue = InputType.TYPE_TEXT_FLAG_CAP_WORDS;
-      } else if (autoCapitalizeStr.equals("sentences")) {
+      } else if ("sentences".equals(autoCapitalizeStr)) {
         autoCapitalizeValue = InputType.TYPE_TEXT_FLAG_CAP_SENTENCES;
       }
     }

@@ -62,11 +62,11 @@ public class PointerEventHelper {
   public static boolean supportsHover(final int toolType) {
     String pointerType = getW3CPointerType(toolType);
 
-    if (pointerType.equals(POINTER_TYPE_MOUSE)) {
+    if (POINTER_TYPE_MOUSE.equals(pointerType)) {
       return true;
-    } else if (pointerType.equals(POINTER_TYPE_PEN)) {
+    } else if (POINTER_TYPE_PEN.equals(pointerType)) {
       return true; // true?
-    } else if (pointerType.equals(POINTER_TYPE_TOUCH)) {
+    } else if (POINTER_TYPE_TOUCH.equals(pointerType)) {
       return false;
     }
 

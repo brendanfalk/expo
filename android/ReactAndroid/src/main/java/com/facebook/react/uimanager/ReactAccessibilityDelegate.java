@@ -382,11 +382,11 @@ public class ReactAccessibilityDelegate extends ExploreByTouchHelper {
     while (i.hasNextKey()) {
       final String state = i.nextKey();
       final Dynamic value = accessibilityState.getDynamic(state);
-      if (state.equals(STATE_SELECTED) && value.getType() == ReadableType.Boolean) {
+      if (STATE_SELECTED.equals(state) && value.getType() == ReadableType.Boolean) {
         info.setSelected(value.asBoolean());
-      } else if (state.equals(STATE_DISABLED) && value.getType() == ReadableType.Boolean) {
+      } else if (STATE_DISABLED.equals(state) && value.getType() == ReadableType.Boolean) {
         info.setEnabled(!value.asBoolean());
-      } else if (state.equals(STATE_CHECKED) && value.getType() == ReadableType.Boolean) {
+      } else if (STATE_CHECKED.equals(state) && value.getType() == ReadableType.Boolean) {
         final boolean boolValue = value.asBoolean();
         info.setCheckable(true);
         info.setChecked(boolValue);

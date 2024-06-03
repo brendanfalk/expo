@@ -65,9 +65,9 @@ class ViewBox {
             // If align is not 'none' and meetOrSlice is 'meet', set the larger of scale-x and scale-y to the smaller.
             // Otherwise, if align is not 'none' and meetOrSlice is 'slice', set the smaller of scale-x and scale-y to the larger.
 
-            if (!align.equals("none") && meetOrSlice == MOS_MEET) {
+            if (!"none".equals(align) && meetOrSlice == MOS_MEET) {
                 scaleX = scaleY = Math.min(scaleX, scaleY);
-            } else if (!align.equals("none") && meetOrSlice == MOS_SLICE) {
+            } else if (!"none".equals(align) && meetOrSlice == MOS_SLICE) {
                 scaleX = scaleY = Math.max(scaleX, scaleY);
             }
 
