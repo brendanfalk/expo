@@ -22,6 +22,8 @@ import com.facebook.common.logging.FLog;
 import com.facebook.react.R;
 import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.common.ReactConstants;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
@@ -63,7 +65,7 @@ public class DevLoadingViewController {
 
     URL parsedURL;
     try {
-      parsedURL = new URL(url);
+      parsedURL = Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
     } catch (MalformedURLException e) {
       FLog.e(ReactConstants.TAG, "Bundle url format is invalid. \n\n" + e.toString());
       return;

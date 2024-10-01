@@ -7,6 +7,8 @@ import android.content.Context;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -119,7 +121,7 @@ public class AirMapUrlTile extends AirMapFeature {
     if (tileCachePath == null || tileCachePath.isEmpty()) return;
     
     try {
-      URL url = new URL(tileCachePath);
+      URL url = Urls.create(tileCachePath, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
       this.tileCachePath = url.getPath();
     } catch (MalformedURLException e) {
       this.tileCachePath = tileCachePath;
