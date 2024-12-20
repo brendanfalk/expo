@@ -29,6 +29,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 
 import java.util.List;
 import java.util.Map;
@@ -122,7 +123,7 @@ public class AirMapModule extends ReactContextBaseJavaModule {
               FileOutputStream outputStream;
               try {
                 tempFile =
-                    File.createTempFile("AirMapSnapshot", "." + format, context.getCacheDir());
+                    Files.createTempFile(context.getCacheDir().toPath(), "AirMapSnapshot", "." + format).toFile();
                 outputStream = new FileOutputStream(tempFile);
               } catch (Exception e) {
                 promise.reject(e);

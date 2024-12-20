@@ -30,6 +30,7 @@ import com.facebook.react.devsupport.interfaces.RedBoxHandler;
 import com.facebook.react.packagerconnection.RequestHandler;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -188,7 +189,7 @@ public class BridgeDevSupportManager extends DevSupportManagerBase {
             }
         } else {
             try {
-                final String outputPath = File.createTempFile("sampling-profiler-trace", ".cpuprofile", getApplicationContext().getCacheDir()).getPath();
+                final String outputPath = Files.createTempFile(getApplicationContext().getCacheDir().toPath(), "sampling-profiler-trace", ".cpuprofile").toFile().getPath();
                 javaScriptExecutorFactory.stopSamplingProfiler(outputPath);
                 Toast.makeText(getApplicationContext(), "Saved results from Profiler to " + outputPath, Toast.LENGTH_LONG).show();
             } catch (IOException e) {

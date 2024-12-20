@@ -21,6 +21,7 @@ import abi46_0_0.com.facebook.react.uimanager.UIManagerModule;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.Map;
 
@@ -187,8 +188,8 @@ public class RNViewShotModule extends ReactContextBaseJavaModule {
 
         final String suffix = "." + ext;
         if (fileName != null) {
-            return File.createTempFile(fileName, suffix, cacheDir);
+            return Files.createTempFile(cacheDir.toPath(), fileName, suffix).toFile();
         }
-        return File.createTempFile(TEMP_FILE_PREFIX, suffix, cacheDir);
+        return Files.createTempFile(cacheDir.toPath(), TEMP_FILE_PREFIX, suffix).toFile();
     }
 }
