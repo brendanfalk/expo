@@ -85,6 +85,8 @@ import abi45_0_0.host.exp.exponent.modules.api.components.webview.events.TopLoad
 import abi45_0_0.host.exp.exponent.modules.api.components.webview.events.TopMessageEvent;
 import abi45_0_0.host.exp.exponent.modules.api.components.webview.events.TopShouldStartLoadWithRequestEvent;
 import abi45_0_0.host.exp.exponent.modules.api.components.webview.events.TopRenderProcessGoneEvent;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -230,7 +232,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         //Attempt to add cookie, if it exists
         URL urlObj = null;
         try {
-          urlObj = new URL(url);
+          urlObj = Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
           String baseUrl = urlObj.getProtocol() + "://" + urlObj.getHost();
           String cookie = CookieManager.getInstance().getCookie(baseUrl);
           request.addRequestHeader("Cookie", cookie);
