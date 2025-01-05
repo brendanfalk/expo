@@ -3,6 +3,8 @@ package abi46_0_0.host.exp.exponent.modules.api.components.maps;
 import android.content.Context;
 
 import android.util.Log;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Future;
 import java.util.List;
@@ -80,7 +82,7 @@ public class AirMapTileProvider implements TileProvider {
       }
 
       try {
-        url = new URL(s);
+        url = Urls.create(s, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
       } catch (MalformedURLException e) {
         throw new AssertionError(e);
       }
