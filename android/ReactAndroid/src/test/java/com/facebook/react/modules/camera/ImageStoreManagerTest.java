@@ -7,6 +7,7 @@
 
 package com.facebook.react.modules.camera;
 
+import java.security.SecureRandom;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
@@ -70,7 +71,7 @@ public class ImageStoreManagerTest {
   }
 
   private byte[] generateRandomByteString(final int length) {
-    Random r = new Random();
+    Random r = new SecureRandom();
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < length; i++) {
       char c = (char) (r.nextInt((int) (Character.MAX_VALUE)));

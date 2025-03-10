@@ -7,6 +7,7 @@
 
 package com.facebook.react.modules.blob;
 
+import java.security.SecureRandom;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -61,7 +62,7 @@ public class BlobModuleTest {
             });
 
     mBytes = new byte[120];
-    new Random().nextBytes(mBytes);
+    new SecureRandom().nextBytes(mBytes);
 
     mBlobModule = new BlobModule(ReactTestHelper.createCatalystContextForTest());
     mBlobId = mBlobModule.store(mBytes);
