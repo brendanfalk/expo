@@ -22,6 +22,7 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
 import java.util.zip.GZIPOutputStream;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -72,7 +73,7 @@ import okio.Source;
   private static InputStream getDownloadFileInputStream(Context context, Uri uri)
       throws IOException {
     final File outputDir = context.getApplicationContext().getCacheDir();
-    final File file = File.createTempFile(NAME, TEMP_FILE_SUFFIX, outputDir);
+    final File file = Files.createTempFile(outputDir.toPath(), NAME, TEMP_FILE_SUFFIX).toFile();
     file.deleteOnExit();
 
     final URL url = new URL(uri.toString());
