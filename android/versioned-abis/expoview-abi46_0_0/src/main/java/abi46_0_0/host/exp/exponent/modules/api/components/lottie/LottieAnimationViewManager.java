@@ -21,6 +21,8 @@ import abi46_0_0.com.facebook.react.uimanager.SimpleViewManager;
 import abi46_0_0.com.facebook.react.uimanager.ThemedReactContext;
 import abi46_0_0.com.facebook.react.uimanager.annotations.ReactProp;
 import abi46_0_0.com.facebook.react.uimanager.events.RCTEventEmitter;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -220,7 +222,7 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
         @Override
         public void run() {
             try  {
-              BufferedReader in = new BufferedReader(new InputStreamReader(new URL(finalUrlString).openStream()));
+              BufferedReader in = new BufferedReader(new InputStreamReader(Urls.create(finalUrlString, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openStream()));
               String inputLine;
               String json = "";
 
