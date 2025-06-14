@@ -12,6 +12,7 @@ import abi44_0_0.com.facebook.react.bridge.ReadableArray;
 import abi44_0_0.com.facebook.react.bridge.ReadableMap;
 import abi44_0_0.com.facebook.react.bridge.WritableMap;
 import com.google.firebase.messaging.FirebaseMessaging;
+import java.security.SecureRandom;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -230,7 +231,7 @@ public class NotificationsModule extends ReactContextBaseJavaModule {
         legacyChannelData.toHashMap());
     }
 
-    int notificationId = new Random().nextInt();
+    int notificationId = new SecureRandom().nextInt();
 
     NotificationHelper.showNotification(
       getReactApplicationContext(),
@@ -268,7 +269,7 @@ public class NotificationsModule extends ReactContextBaseJavaModule {
         legacyChannelData.toHashMap());
     }
 
-    int notificationId = new Random().nextInt();
+    int notificationId = new SecureRandom().nextInt();
 
     HashMap<String, Object> hashMap = data.toHashMap();
     if (data.hasKey("categoryId")) {
@@ -348,7 +349,7 @@ public class NotificationsModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void scheduleNotificationWithTimer(final ReadableMap data, final ReadableMap optionsMap, final Promise promise) {
     HashMap<String, Object> options = optionsMap.toHashMap();
-    int notificationId = Math.abs(new Random().nextInt());
+    int notificationId = Math.abs(new SecureRandom().nextInt());
     HashMap<String, Object> hashMap = data.toHashMap();
     if (data.hasKey("categoryId")) {
       hashMap.put("categoryId", getScopedIdIfNotDetached(data.getString("categoryId")));
@@ -386,7 +387,7 @@ public class NotificationsModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void scheduleNotificationWithCalendar(final ReadableMap data, final ReadableMap optionsMap, final Promise promise) {
     HashMap<String, Object> options = optionsMap.toHashMap();
-    int notificationId = Math.abs(new Random().nextInt());
+    int notificationId = Math.abs(new SecureRandom().nextInt());
     HashMap<String, Object> hashMap = data.toHashMap();
     if (data.hasKey("categoryId")) {
       hashMap.put("categoryId", getScopedIdIfNotDetached(data.getString("categoryId")));
