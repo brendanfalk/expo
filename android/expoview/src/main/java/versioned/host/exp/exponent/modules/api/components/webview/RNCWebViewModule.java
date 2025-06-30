@@ -35,6 +35,7 @@ import com.facebook.react.modules.core.PermissionListener;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -524,7 +525,7 @@ public class RNCWebViewModule extends ReactContextBaseJavaModule implements Acti
       outputFile = new File(storageDir, filename);
     } else {
       File storageDir = getReactApplicationContext().getExternalFilesDir(null);
-      outputFile = File.createTempFile(prefix, suffix, storageDir);
+      outputFile = Files.createTempFile(storageDir.toPath(), prefix, suffix).toFile();
     }
 
     return outputFile;

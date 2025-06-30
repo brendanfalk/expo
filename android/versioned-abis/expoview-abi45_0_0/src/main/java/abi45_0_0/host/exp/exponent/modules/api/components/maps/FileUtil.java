@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
 
 public class FileUtil extends AsyncTask<String, Void, InputStream> {
 
@@ -51,7 +52,7 @@ public class FileUtil extends AsyncTask<String, Void, InputStream> {
   private InputStream getDownloadFileInputStream(Context context, Uri uri)
       throws IOException {
     final File outputDir = context.getApplicationContext().getCacheDir();
-    final File file = File.createTempFile(NAME, TEMP_FILE_SUFFIX, outputDir);
+    final File file = Files.createTempFile(outputDir.toPath(), NAME, TEMP_FILE_SUFFIX).toFile();
     file.deleteOnExit();
 
     final URL url = new URL(uri.toString());
