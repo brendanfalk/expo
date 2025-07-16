@@ -77,6 +77,8 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.ContentSizeChangeEvent;
 import com.facebook.react.uimanager.events.Event;
 import com.facebook.react.uimanager.events.EventDispatcher;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import versioned.host.exp.exponent.modules.api.components.webview.RNCWebViewModule.ShouldOverrideUrlLoadingLock.ShouldOverrideCallbackState;
 import versioned.host.exp.exponent.modules.api.components.webview.events.TopLoadingErrorEvent;
 import versioned.host.exp.exponent.modules.api.components.webview.events.TopHttpErrorEvent;
@@ -236,7 +238,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         //Attempt to add cookie, if it exists
         URL urlObj = null;
         try {
-          urlObj = new URL(url);
+          urlObj = Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
           String baseUrl = urlObj.getProtocol() + "://" + urlObj.getHost();
           String cookie = CookieManager.getInstance().getCookie(baseUrl);
           request.addRequestHeader("Cookie", cookie);

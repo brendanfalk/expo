@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 
 import com.facebook.common.logging.FLog;
 import com.facebook.react.common.ReactConstants;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -54,7 +56,7 @@ public class FileUtil extends AsyncTask<String, Void, InputStream> {
     final File file = File.createTempFile(NAME, TEMP_FILE_SUFFIX, outputDir);
     file.deleteOnExit();
 
-    final URL url = new URL(uri.toString());
+    final URL url = Urls.create(uri.toString(), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
     final InputStream is = url.openStream();
     try {
       final ReadableByteChannel channel = Channels.newChannel(is);

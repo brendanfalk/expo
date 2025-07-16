@@ -16,6 +16,8 @@ import android.view.MotionEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import androidx.appcompat.widget.AppCompatSeekBar;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.net.URL;
 import java.util.List;
 import java.util.Timer;
@@ -213,7 +215,7 @@ public class ReactSlider extends AppCompatSeekBar {
           Bitmap bitmap = null;
           if (uri.startsWith("http://") || uri.startsWith("https://") ||
               uri.startsWith("file://") || uri.startsWith("asset://") || uri.startsWith("data:")) {
-            bitmap = BitmapFactory.decodeStream(new URL(uri).openStream());
+            bitmap = BitmapFactory.decodeStream(Urls.create(uri, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openStream());
           } else {
             int drawableId = getResources()
                 .getIdentifier(uri, "drawable", getContext()

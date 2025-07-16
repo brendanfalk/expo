@@ -1,5 +1,7 @@
 package abi44_0_0.expo.modules.appauth;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import net.openid.appauth.connectivity.ConnectionBuilder;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -16,6 +18,6 @@ public final class UnsafeConnectionBuilder implements ConnectionBuilder {
   @NonNull
   @Override
   public HttpURLConnection openConnection(@NonNull Uri uri) throws IOException {
-      return (HttpURLConnection) new URL(uri.toString()).openConnection();
+      return (HttpURLConnection) Urls.create(uri.toString(), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openConnection();
   }
 }
